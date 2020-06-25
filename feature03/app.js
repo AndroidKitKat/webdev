@@ -34,18 +34,30 @@ function homeService ($http) {
 /*--------------------- Settings Component ---------------------*/
 const item = {
     templateUrl: './html/item.html',
-    controller: 'ItemController'
+    controller: 'itemController'
 }
 
 // Settings Component with Routing (Routed / Stateful)
 angular.module('app').component('item', item)
 
 // will update the item name based on the selected element?
-function ItemController(ExampleService) {
+function itemController(itemService) {
+    const controller = this;
+    
+    //query item db
+    itemService ()
+      .then (result => // do what i need to do now?
+        document.getElementById('item-selector').addEventListener('change', function(){
+            var selectorElement = document.getElementById('item-selector');
+            var selected = selectorElement.options[selectorElement.selectedIndex].innerHTML;
+            controller.item = selected;
+            console.log(selected)
+        }));
+
 
 }
-ItemController.$inject = ['ExampleService'];
-angular.module('app').controller('ItemController', ItemController);
+itemController.$inject = ['itemService'];
+angular.module('app').controller('itemController', itemController);
 /*--------------------- Settings Component ---------------------*/
 
 /*--------------------- Example Service ---------------------*/
@@ -53,11 +65,11 @@ angular.module('app').controller('ItemController', ItemController);
 
 // TODO
 // get the data from the db
-function ExampleService() {
+function itemService($http) {
     return () => $http
     .get("./db.json")
 }
-angular.module('app').service('ExampleService', ExampleService)
+angular.module('app').service('itemService', itemService)
 /*--------------------- Example Service ---------------------*/
 
 
