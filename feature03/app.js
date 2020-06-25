@@ -9,8 +9,9 @@ const home = {
 // Home Component with Routing (Routed / Stateful)
 angular.module('app').component('home', home);
 
+/* what exactly is the empty home controller function for? */
 function homeController(homeService){
-    
+
 }
 angular.module('app').controller('homeController', homeController);
 
@@ -18,31 +19,15 @@ angular.module('app').service('homeService', homeService);
 
 homeController.$inject = ['homeService'];
 
+/* home service that queries the db */
 function homeService ($http) {
-    const ctrl = this;
 
+    const ctrl = this;
     $http.get("./db.json").then(function(response){
         ctrl.items = response.data.items;
         console.log(ctrl.items);
     })
-
-    console.log('we here');
 }
-
-
-/* {
-
-    const ctrl = this;
-
-    // holy jesus // put in service
-    $http.get("./db.json").then(function(response) {
-        ctrl.items = response.data.items
-        console.log(ctrl.items)
-    })
-
-}]);*/
-//i gtg get on my call o7 o7
-
 
 
 
@@ -64,13 +49,10 @@ angular.module('app').controller('ItemController', ItemController);
 /*--------------------- Settings Component ---------------------*/
 
 /*--------------------- Example Service ---------------------*/
-// we should maybe do something with this? 
 
-//query the db
+
+// TODO
 function ExampleService() {
-    // Services are Singletons
-    // Properties
-    // Methods
 }
 angular.module('app').service('ExampleService', ExampleService)
 /*--------------------- Example Service ---------------------*/
