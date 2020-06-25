@@ -40,7 +40,7 @@ const item = {
 // Settings Component with Routing (Routed / Stateful)
 angular.module('app').component('item', item)
 
-// Settings Controller with dependency injection using $inject method
+// will update the item name based on the selected element?
 function ItemController(ExampleService) {
 
 }
@@ -52,7 +52,10 @@ angular.module('app').controller('ItemController', ItemController);
 
 
 // TODO
+// get the data from the db
 function ExampleService() {
+    return () => $http
+    .get("./db.json")
 }
 angular.module('app').service('ExampleService', ExampleService)
 /*--------------------- Example Service ---------------------*/
