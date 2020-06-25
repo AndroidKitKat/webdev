@@ -1,1 +1,7 @@
-<h1> this donk: {{ $ctrl.items }} </h1>
+
+<!-- Displays the info from the Db for the item typed in by the user-->
+<button ng-model="kms" ng-click="$ctrl.itemSearch()">Find Item</button>
+<h1> Item: {{ $ctrl.Selected.name}} </h1>
+<h3> Buying: {{ $ctrl.Selected.buying }} gp</h3>
+<h3> Selling: {{ $ctrl.Selected.selling}} gp</h3>
+<h3> Margin: {{ $ctrl.Selected.buying - $ctrl.Selected.selling }} </h3>

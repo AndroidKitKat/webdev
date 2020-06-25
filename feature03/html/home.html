@@ -1,17 +1,13 @@
-<h2>Item</h2>
+<!-- main component containing a form for the item search-->
+  <h2>Item</h2>
 
-<select id='item-selector' ng-model="selectItem" ng-options="item as item.name for item in $ctrl.items">
-</select>
-<label for='item-selector'> this drop down is generated from the json data!</label>
+  <form>
+    <label for="item-input">Item name:</label>
+    <input name="item-input" id="item-input" type="text">
+    <item></item> <!-- why does this work lol xd-->
+  </form>
 
-<!-- todo; ng-repeat stuff, and also 'Bindings' -->
 
-
-
-<div class="item-description">
-  <!--putting this into items to see if we can pass data-->
-  <item></item>
-</div>
 
 
 
