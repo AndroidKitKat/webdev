@@ -4,7 +4,6 @@ angular.module('app', ['ngMaterial', 'ngMessages']);
 const home = {
     templateUrl: './html/home.html',
     controller: 'homeController',
-    sex: 'fuck'
 }
 
 // Home Component with Routing (Routed / Stateful)
@@ -40,22 +39,24 @@ const item = {
 // Settings Component with Routing (Routed / Stateful)
 angular.module('app').component('item', item)
 
-// will update the item name based on the selected element?
 function itemController(itemService) {
     const controller = this;
     
     //query item db
     itemService ()
       .then (result => // do what i need to do now?
+        controller.item = result.data.items)
+/*
         document.getElementById('item-selector').addEventListener('change', function(){
             var selectorElement = document.getElementById('item-selector');
             var selected = selectorElement.options[selectorElement.selectedIndex].innerHTML;
             controller.item = selected;
             console.log(selected)
         }));
-
+*/
 
 }
+
 itemController.$inject = ['itemService'];
 angular.module('app').controller('itemController', itemController);
 /*--------------------- Settings Component ---------------------*/
