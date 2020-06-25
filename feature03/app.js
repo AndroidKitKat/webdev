@@ -3,16 +3,22 @@ angular.module('app', ['ngMaterial', 'ngMessages']);
 /*--------------------- Home Component ---------------------*/
 const home = {
     templateUrl: './html/home.html',
-    controller: 'homeController'
+    controller: 'homeController',
+    sex: 'fuck'
 }
 
 // Home Component with Routing (Routed / Stateful)
 angular.module('app').component('home', home);
 
 /* what exactly is the empty home controller function for? */
-function homeController(homeService){
+function homeController (homeService) {
 
+  const controller = this
+
+  homeService ()
+    .then (result => controller.items = result.data.items)
 }
+
 angular.module('app').controller('homeController', homeController);
 
 angular.module('app').service('homeService', homeService); 
@@ -21,15 +27,9 @@ homeController.$inject = ['homeService'];
 
 /* home service that queries the db */
 function homeService ($http) {
-
-    const ctrl = this;
-    $http.get("./db.json").then(function(response){
-        ctrl.items = response.data.items;
-        console.log(ctrl.items);
-    })
+  return () => $http
+    .get("./db.json")
 }
-
-
 
 /*--------------------- Settings Component ---------------------*/
 const item = {
@@ -56,6 +56,5 @@ function ExampleService() {
 }
 angular.module('app').service('ExampleService', ExampleService)
 /*--------------------- Example Service ---------------------*/
-
 
 
