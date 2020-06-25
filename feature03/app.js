@@ -45,7 +45,7 @@ function itemController(itemService) {
     //query item db
     itemService ()
       .then (result => // do what i need to do now?
-        controller.item = result.data.items)
+        controller.items = result.data.items)
 /*
         document.getElementById('item-selector').addEventListener('change', function(){
             var selectorElement = document.getElementById('item-selector');
