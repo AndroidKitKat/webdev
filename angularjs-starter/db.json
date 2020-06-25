@@ -1,0 +1,14 @@
+{
+    "items": [
+        {
+            "name": "Rune Scimitar",
+            "buying": 40000,
+            "selling": 40010
+        },
+        {
+            "name": "Fire Battlestaff",
+            "buying": 37000,
+            "selling": 38000
+        }
+    ]
+} 
